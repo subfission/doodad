@@ -1,0 +1,30 @@
+{
+    "name": "subfission/doodad",
+    "description": "Simple methods for common linux system calls",
+    "keywords": [
+        "system", "exec", "cli", "subfission"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zach Jetson",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Subfission\\Doodad\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Subfission\\Doodad\\Test\\": "tests"
+        }
+    }
+}
