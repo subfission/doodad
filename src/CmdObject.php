@@ -1,37 +1,57 @@
-<?php
-/**
+<?php namespace Subfission\Doodad;
+
+
+/***********************************
  * Author: Zach Jetson
+ * Licence: MIT
+ ***********************************/
+
+/**
+ * Class CmdObject
+ * @package Subfission\Doodad
  */
-
-namespace Subfission\Doodad;
-
-
 class CmdObject {
 
-    /**
-     * @var
-     */
     protected $return_value;
     protected $output = [];
     protected $cmd;
 
+
+    /**
+     * Accepts a string for command
+     * @param $cmd
+     */
     public function __construct($cmd)
     {
         $this->cmd = $cmd;
     }
 
+    /**
+     * Get the return value of the command
+     * in whatever format was provided.
+     * Usually this will be integer.
+     *
+     * @return mixed
+     */
     public function getReturnVal()
     {
         return $this->return_value;
     }
 
+
+    /**
+     * Get the return status code as an integer.
+     * @return int
+     */
     public function getStatusCode()
     {
         return (int) $this->getReturnVal();
     }
 
     /**
-     * Get the output
+     * Get the output of the command as an array.
+     * This method will return an empty array
+     * if nothing was available for output.
      * @return array
      */
     public function getOutput()
@@ -40,21 +60,20 @@ class CmdObject {
     }
 
     /**
-     * Display the output of the command in a formatted pre tag
+     * Display the output of the command in a
+     * formatted pre tag ready for view.
      * @param string $class
      * @return string
      */
     public function getOutputPretty($class = '')
     {
-        $class = ($class == '' ?: ' class="' . $class . '"');
+        $class ? $pre_class = implode('"', [" class=", $class, '']) : $pre_class = '';
 
-        return "<pre {$class}>" .
-        implode('<br />', $this->output) .
-        '</pre>';
+        return "<pre{$pre_class}>" . implode('<br />' . PHP_EOL, $this->output) . '</pre>';
     }
 
     /**
-     * Execute a command through shell_exec
+     * Execute a command through shell_exec.
      * @void
      */
     public function shellExec()
@@ -63,7 +82,7 @@ class CmdObject {
     }
 
     /**
-     * Execute a command through exec
+     * Execute a command through exec.
      * @void
      */
     public function exec()
@@ -72,7 +91,7 @@ class CmdObject {
     }
 
     /**
-     * Execute a command through system
+     * Execute a command through system.
      * @void
      */
     public function system()
