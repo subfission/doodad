@@ -3,6 +3,10 @@
 # Doodad
 Simple methods for common linux system calls
 
+## Installation
+
+    $ composer require "subfission/doodad" : "dev-master"
+
 ## Usage
     $doodad = new Subfission\Doodad();
     $return_object = $doodad->ignoreErrors()->execute('ls');
