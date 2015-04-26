@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/subfission/doodad.svg)](https://travis-ci.org/subfission/doodad)
+[![Latest Stable Version](https://poser.pugx.org/subfission/doodad/v/stable)](https://packagist.org/packages/subfission/doodad) 
+[![License](https://poser.pugx.org/subfission/doodad/license)](https://packagist.org/packages/subfission/doodad)
 
 # Doodad
 Simple methods for common linux system calls
